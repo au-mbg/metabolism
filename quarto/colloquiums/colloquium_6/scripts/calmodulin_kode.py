@@ -1,0 +1,24 @@
+# Import necessary libraries
+import plotly.graph_objects as go
+import numpy as np
+
+# Hypothetical data
+conditions = ['Low Ca2+', 'Medium Ca2+', 'High Ca2+']
+binding_affinity = np.array([0.5, 1.0, 1.5])
+
+# Create a Plotly figure
+fig = go.Figure()
+
+# Add a bar chart to the figure
+fig.add_trace(go.Bar(x=conditions, y=binding_affinity, marker_color='blue'))
+
+# Update layout and style
+fig.update_layout(
+    title='Calmodulin Activity under Different Conditions',
+    xaxis_title='Calcium Concentration Conditions',
+    yaxis_title='Binding Affinity (arbitrary units)',
+    template='plotly_white'
+)
+
+# Show the plot
+fig.show()

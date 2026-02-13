@@ -1,0 +1,19 @@
+project:
+  type: default
+  output-dir: _output/
+
+
+format:
+  ipynb: 
+    number-sections: true
+    number-depth: 2
+    execute:
+      enabled: false
+
+execute:
+  echo: true
+  warning: false
+  error: false
+
+
+

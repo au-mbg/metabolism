@@ -1,0 +1,33 @@
+import matplotlib.pyplot as plt
+import ipywidgets as widgets
+from IPython.display import display
+
+def plot_pathway_with_circles(PDE_activity, AC_activity):
+    cAMP = max(0, AC_activity - PDE_activity)
+    PKA = cAMP * 0.8
+
+    fig, ax = plt.subplots(figsize=(10, 3))
+    ax.axis('on')
+
+    def draw_circle(text, center_x, center_y, value):
+        radius = max(0.4, value * 0.4)
+        circle = plt.Circle((center_x, center_y), radius, color='lightblue', ec='black', alpha=0.6)
+        ax.add_patch(circle)
+        ax.text(center_x, center_y, f"{text}\n{value:.2f}", ha='center', va='center', fontsize=9, weight='bold')
+
+    draw_circle("AC", 0, 0, AC_activity)
+    draw_circle("PDE", 2, 0, PDE_activity)
+    draw_circle("cAMP", 4, 0, cAMP)
+    draw_circle("PKA", 6, 0, PKA)
+
+    ax.set_xlim(-3, 9.5)
+    ax.set_ylim(-2, 2)
+    plt.show()
+
+PDE_slider = widgets.FloatSlider(value=1.0, min=0, max=5, step=0.1, description='PDE')
+AC_slider = widgets.FloatSlider(value=2.0, min=0, max=5, step=0.1, description='AC')
+
+ui = widgets.HBox([PDE_slider, AC_slider])
+out = widgets.interactive_output(plot_pathway_with_circles, {'PDE_activity': PDE_slider, 'AC_activity': AC_slider})
+
+display(ui, out)

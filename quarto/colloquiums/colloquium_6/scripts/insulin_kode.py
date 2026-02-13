@@ -1,0 +1,26 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from ipywidgets import interact, FloatSlider
+
+#Del 1:
+def glucose_uptake(insulin_concentration, sensitivity, half_max):
+    max_uptake = 100  # maximum glucose uptake as percentage
+    return max_uptake / (1 + np.exp(-sensitivity * (insulin_concentration - half_max)))
+#Del 2:
+def plot_glucose_uptake(sensitivity, half_max):
+    insulin_concentration = np.linspace(0, 100, 100)
+    uptake = glucose_uptake(insulin_concentration, sensitivity, half_max)
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(insulin_concentration, uptake, label=f'Sensitivity: {sensitivity}, Half-Max: {half_max}')
+    plt.xlabel('Insulin Concentration (μM)')
+    plt.ylabel('Glucose Uptake (%)')
+    plt.title('Effect of Insulin on Glucose Uptake')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+#Del 3:
+interact(plot_glucose_uptake, 
+         sensitivity=FloatSlider(value=0.1, min=0.01, max=1.0, step=0.01, description='Sensitivity:'),
+         half_max=FloatSlider(value=50, min=10, max=90, step=1, description='Half-Max:'))

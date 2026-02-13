@@ -1,0 +1,26 @@
+---
+title: "Exercise 6"
+---
+
+```{python}
+import pandas as pd
+import numpy as np
+
+# For reproducibility
+np.random.seed(1)
+
+# Simulate fold change values
+fold_changes = np.random.normal(loc=1.0, scale=0.2, size=100)
+fold_changes[:20] += np.random.uniform(0.5, 1.5, size=20) 
+
+# Ensure all values are positive
+fold_changes = np.abs(fold_changes)
+
+# Create the DataFrame with only fold change values
+df = pd.DataFrame({
+    "Patient_ID": [f"P{str(i).zfill(3)}" for i in range(1, 101)],
+    "ACC_Fold_Change": fold_changes
+})
+
+print(df)
+```

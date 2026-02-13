@@ -1,0 +1,23 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from ipywidgets import interactive, FloatSlider
+
+def plot_BAC(peak_time=1, peak_concentration=0.15, rise_rate=0.4, decay_rate=1.5):
+    time = np.linspace(0, 8, 500)
+    
+    # Calculate BAC (Blood Alcohol Content) using an asymmetric Gaussian model
+    concentration = np.where(time <= peak_time,
+                             peak_concentration * np.exp(-0.5 * ((time - peak_time) / rise_rate)**2),
+                             peak_concentration * np.exp(-0.5 * ((time - peak_time) / decay_rate)**2))
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(time, concentration, label='BAC level')
+    plt.xlabel('Time [hour]')
+    plt.ylabel('BAC concentration [g/L]')
+    plt.title('BAC levels after alcohol consumption')
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+
+# Call the function with default parameters
+plot_BAC()
