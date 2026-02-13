@@ -6,7 +6,9 @@ title: "Exercise 3"
 import numpy as np
 import matplotlib.pyplot as plt
 from ipywidgets import interactive, FloatSlider
+```
 
+```{python}
 def plot_BAC(peak_time=1, peak_concentration=0.15, rise_rate=0.4, decay_rate=1.5):
     time = np.linspace(0, 8, 500)
     
@@ -23,7 +25,9 @@ def plot_BAC(peak_time=1, peak_concentration=0.15, rise_rate=0.4, decay_rate=1.5
     plt.grid(True)
     plt.legend()
     plt.show()
+```
 
+```{python}
 # Call the function with default parameters
 plot_BAC()
 ```

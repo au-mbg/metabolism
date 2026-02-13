@@ -6,7 +6,9 @@ title: "Exercise 4"
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+```
 
+```{python}
 # Parameters for the inhibition curve
 IC50 = 40  # midpoint of inhibition (µM)
 hill_slope = 3  # steepness of the curve
@@ -17,7 +19,9 @@ acyl_coa = np.linspace(0, 100, 200)
 # Calculate % activity using the Hill equation for inhibition
 # % Activity = 100 / (1 + ([I]/IC50)^Hill)
 percent_activity = 100 / (1 + (acyl_coa / IC50) ** hill_slope)
+```
 
+```{python}
 # Create DataFrame
 df = pd.DataFrame({
     "Acyl_CoA_Concentration": acyl_coa,

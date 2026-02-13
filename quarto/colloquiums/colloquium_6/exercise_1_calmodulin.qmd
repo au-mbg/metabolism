@@ -6,11 +6,15 @@ title: "Exercise 1"
 # Import necessary libraries
 import plotly.graph_objects as go
 import numpy as np
+```
 
+```{python}
 # Hypothetical data
 conditions = ['Low Ca2+', 'Medium Ca2+', 'High Ca2+']
 binding_affinity = np.array([0.5, 1.0, 1.5])
+```
 
+```{python}
 # Create a Plotly figure
 fig = go.Figure()
 

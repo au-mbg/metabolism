@@ -5,7 +5,9 @@ title: "Exercise 2"
 ```{python}
 import pandas as pd
 import numpy as np
+```
 
+```{python}
 # Define background proteins with matched, realistic descriptions
 receptors = [(f"RECEPTOR{i+1}", "Membrane receptor involved in signal transduction") for i in range(10)]
 kinases = [(f"KINASE{i+1}", "Cytoplasmic kinase involved in phosphorylation") for i in range(10)]
@@ -23,7 +25,9 @@ relevant_proteins = [
 all_proteins = receptors + kinases + transcription_factors + relevant_proteins
 np.random.seed(42)
 np.random.shuffle(all_proteins)
+```
 
+```{python}
 # Create final DataFrame
 df_proteins = pd.DataFrame(all_proteins, columns=["protein_name", "description"])
 df_proteins

@@ -6,7 +6,9 @@ title: "Exercise 5"
 import pandas as pd
 import numpy as np
 import random
+```
 
+```{python}
 # Set seed for reproducibility
 np.random.seed(42)
 
@@ -25,7 +27,9 @@ missing_b12 = [np.nan] * 10
 # Combine all values and shuffle
 all_b12 = np.concatenate([normal_b12, high_b12, missing_b12])
 np.random.shuffle(all_b12)
+```
 
+```{python}
 # Create DataFrame
 df_b12 = pd.DataFrame({
     "sample_id": [f"S{i+1:03d}" for i in range(n_samples)],

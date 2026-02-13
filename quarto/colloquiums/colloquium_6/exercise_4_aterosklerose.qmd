@@ -9,7 +9,9 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+```
 
+```{python}
 # Variables for column names
 patient_ID = "Patient ID"
 age = "Age"
@@ -39,7 +41,9 @@ data = {
 
 # Creating DataFrame
 patient_data = pd.DataFrame(data)
+```
 
+```{python}
 # Create a figure with subplots
 fig, axes = plt.subplots(3, 2, figsize=(14, 18))  # Adjust the grid size based on the number of parameters
 axes = axes.flatten()  # Flatten the axis array for easier iteration
